@@ -752,7 +752,7 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
     color: #FFFFFF;
     text-shadow: 0 1px 4px rgba(0, 0, 0, 0.33);
     text-align: center;
-    margin-top: 50px;
+    margin-top: 40px;
     
 }
 .main .subscribe .info-text{
@@ -802,6 +802,18 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
     color: #FF3B30;
 }
 
+.form-inline{
+    display: block;
+    width: 100%;
+}
+.form-group{   
+    height: 50px;
+}
+
+.form-control.transparent{
+    height: 38px;
+}
+
 @media (min-width:219px){        
     .main .subscribe .form-group{
         width: auto;
@@ -812,7 +824,7 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
 }
 @media (min-width:768px){        
     .main .subscribe .form-inline .btn{
-        width: auto;
+        width: 100%;
     }   
 }
 @media (min-width:991px){        
@@ -826,7 +838,7 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
 }
 @media (min-width:1200px){        
     .main .subscribe .form-group{
-        width: 250px;
+        width: 100%;
     }   
 }
 
