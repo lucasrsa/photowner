@@ -31,6 +31,8 @@ $(document).ready(function() {
     readURL(this);
   });
 
+  // Feches info data corresponding to the fields described by
+  // metadataOfInterest, if available, and shows it
   function fetchMetadata(){
     EXIF.getData(document.getElementById("preview-img"), function() {
       let index = 0;
