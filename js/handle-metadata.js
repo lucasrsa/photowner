@@ -15,7 +15,7 @@ $(document).ready(function() {
   // Populate and show image preview
   function readURL(input) {
     if (input.files && input.files[0]) {
-      var reader = new FileReader();
+      let reader = new FileReader();
 
       reader.onload = function(e) {
         $('#preview-img').attr('src', e.target.result);
@@ -31,9 +31,22 @@ $(document).ready(function() {
     readURL(this);
   });
 
+  // Shows all the information given by param line by line
+  function showMetadata(metadata) {
+    let str = "";
+    for (fieldName in metadata) {
+      let info = metadata[fieldName];
+      str += fieldName + ": " + info + "\n";
+    }
+    if (str === "") {
+      str = "No relevant info found";
+    }
+    alert(str);
+  }
+
   // Feches info data corresponding to the fields described by
-  // metadataOfInterest, if available, and shows it
-  function fetchMetadata(){
+  // metadataOfInterest, if available
+  function fetchMetadata() {
     EXIF.getData(document.getElementById("preview-img"), function() {
       let index = 0;
       let metadata = {};
@@ -44,12 +57,7 @@ $(document).ready(function() {
           metadata[fieldName] = info;
         }
       }
-      let str = "";
-      for (fieldName in metadata) {
-        let info = metadata[fieldName];
-        str += fieldName + ": " + info + "\n";
-      }
-      alert(str);
+      showMetadata(metadata);
     });
   };
 
