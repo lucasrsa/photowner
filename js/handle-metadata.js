@@ -33,8 +33,21 @@ $(document).ready(function() {
 
   function fetchMetadata(){
     EXIF.getData(document.getElementById("preview-img"), function() {
-      console.log(EXIF.getAllTags(this));
-      alert()
+      let index = 0;
+      let metadata = {};
+      for (index in metadataOfInterest) {
+        let fieldName = metadataOfInterest[index];
+        let info = EXIF.getTag(this, fieldName);
+        if (info) {
+          metadata[fieldName] = info;
+        }
+      }
+      let str = "";
+      for (fieldName in metadata) {
+        let info = metadata[fieldName];
+        str += fieldName + ": " + info + "\n";
+      }
+      alert(str);
     });
   };
 
