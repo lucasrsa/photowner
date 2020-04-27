@@ -1,5 +1,12 @@
 $(document).ready(function() {
 
+  metadataOfInterest = [
+    "Artist",
+    "Copyright",
+    "DateTime",
+    "ImageDescription",
+  ]
+
   // Prevent form to reload page on submit
   $(".form-inline").submit(function(e) {
     e.preventDefault();
@@ -12,7 +19,7 @@ $(document).ready(function() {
 
       reader.onload = function(e) {
         $('#preview-img').attr('src', e.target.result);
-        $('#preview-img').show()
+        $('#preview-img').show();
       }
 
       reader.readAsDataURL(input.files[0]); // convert to base64 string
@@ -24,13 +31,16 @@ $(document).ready(function() {
     readURL(this);
   });
 
+  function fetchMetadata(){
+    EXIF.getData(document.getElementById("preview-img"), function() {
+      console.log(EXIF.getAllTags(this));
+      alert()
+    });
+  };
+
   // Add metadata fetcher to submit button
   document.getElementById("submit-btn")
-    .addEventListener("click", function(){
-      EXIF.getData(document.getElementById("preview-img"), function() {
-        alert("gotten");
-      });
-    }, false);
+    .addEventListener("click", fetchMetadata, false);
 
   // $(document).on("click", "#submit-btn", function() {
   //   console.log("CLICKED");
