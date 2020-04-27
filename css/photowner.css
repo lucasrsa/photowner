@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+
+#logo {
+    display: flex;
+    position: relative;
+    margin: 128px auto 0;
+    flex-flow: row;
+    align-content: center;
+}
+
+h1, h2, h3, h4, h5, h6, p, a {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+.accented-button {
+    background-color: #ac27f4;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-family: 'Ubuntu', sans-serif;
+    padding: 8px;
+    border-radius: 8px;
+    display: none;
+}
