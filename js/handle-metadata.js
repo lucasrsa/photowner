@@ -46,20 +46,6 @@ $(document).ready(function() {
 
   // Feches info data corresponding to the fields described by
   // metadataOfInterest, if available
-  // function fetchMetadata() {
-  //   EXIF.getData(document.getElementById("preview-img"), function() {
-  //     let index = 0;
-  //     let metadata = {};
-  //     for (index in metadataOfInterest) {
-  //       let fieldName = metadataOfInterest[index];
-  //       let info = EXIF.getTag(this, fieldName);
-  //       if (info) {
-  //         metadata[fieldName] = info;
-  //       }
-  //     }
-  //     showMetadata(metadata);
-  //   });
-  // };
   function fetchMetadata() {
     let jpegBase64 = document.getElementById("preview-img").src;
     let exifObj = piexif.load(jpegBase64);
@@ -81,18 +67,5 @@ $(document).ready(function() {
   // Add metadata fetcher to submit button
   document.getElementById("submit-btn")
     .addEventListener("click", fetchMetadata, false);
-
-  // $(document).on("click", "#submit-btn", function() {
-  //   console.log("CLICKED");
-  //   // var img = document.getElementById("uploaded-img");
-  //   // EXIF.getData(img, function() {
-  //   //   console.log("gotten");
-  //   //   console.log(EXIF);
-  //   //   // var make = EXIF.getTag(this, "Make");
-  //   //   // var model = EXIF.getTag(this, "Model");
-  //   //   // var makeAndModel = document.getElementById("makeAndModel");
-  //   //   // makeAndModel.innerHTML = `${make} ${model}`;
-  //   // });
-  // });
 
 });
