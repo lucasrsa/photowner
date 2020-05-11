@@ -12,7 +12,7 @@ $(document).ready(function() {
 
       reader.onload = function(e) {
         $('#preview-img').attr('src', e.target.result);
-        $('#preview-img').show()
+        setState(1);
       }
 
       reader.readAsDataURL(input.files[0]); // convert to base64 string
