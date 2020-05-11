@@ -8,10 +8,13 @@
     align-content: center;
 }
 
-h1, h2, h3, h4, h5, h6, p, a {
+h1, h2, h3, h4, h5, h6, p, a, label {
     font-family: 'Ubuntu', sans-serif;
 }
 
+.white {
+    color: white;
+}
 
 .accented-button {
     background-color: #ac27f4;
@@ -19,7 +22,16 @@ h1, h2, h3, h4, h5, h6, p, a {
     text-transform: uppercase;
     font-weight: bolder;
     font-family: 'Ubuntu', sans-serif;
-    padding: 8px;
-    border-radius: 8px;
-    display: none;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.button-bar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex-flow: row;
+    padding: 16px 0;
 }

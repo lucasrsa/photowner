@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
@@ -18,7 +19,8 @@
     <link href="css/coming-sssoon.css" rel="stylesheet"/>
     <link href="css/local.css" rel="stylesheet"/>
     <link href="css/photowner.css" rel="stylesheet">
-
+    <link href="css/index-page.css" rel="stylesheet">
+    <link href="https://cdn.materialdesignicons.com/5.1.45/css/materialdesignicons.min.css" rel="stylesheet">
     <!--     Fonts     -->
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
@@ -44,21 +46,17 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="images/flags/BR.png"/>
-                        Português - BR
-                        <b class="caret"></b>
+                        🇧🇷 Português - BR
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#"><img src="images/flags/US.png"/> English - US</a></li>
-                        <li><a href="#"><img src="images/flags/FR.png"/> Français</a></li>
-                        <li><a href="#"><img src="images/flags/IT.png"/> Italiano</a></li>
-
-
+                        <li><a href="#">🇺🇸 English - US</a></li>
+                        <li><a href="#">🇫🇷 Français</a></li>
+                        <li><a href="#">🇮🇹 Italiano</a></li>
                     </ul>
                 </li>
             </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container -->
+        </div>
+    </div>
 </nav>
 <div class="main" style="background-image: url('images/Cameraa.jpg')">
 
@@ -77,22 +75,22 @@
                 <h5 class="info-text">
                     Find authentic owners without wasting time
                 </h5>
-                <div class="row">
+                <div class="row">f
                     <div class="col-md-4 col-md-offset-4 col-sm6-6 col-sm-offset-3 ">
-                        <form class="form-inline" role="form">
-                            <img id="preview-img" src="#" style="display: none;">
-                            <div class="form-group">
-                                <label class="sr-only">Email address</label>
-                                <input
-                                        type="file"
-                                        id="uploaded-img"
-                                        name="img"
-                                        accept="image/*"
-                                        class="accented-button"
-                                >
+                        <form class="" role="form">
+                            <div id="drop-img" class="card">
+                                <div>
+                                    <img id="preview-img" src="#" style="display: none;">
+                                </div>
+                                <label for="uploaded-img" class="custom-file-upload card--outlined">
+                                    <span class="mdi mdi-upload mdi-48px"></span> Choose or drop your image here!
+                                </label>
+
+                                <input id="uploaded-img" type="file" name="img" accept="image/*">
                             </div>
-                            <!-- <button id="submit-btn" type="submit" class="btn btn-danger btn-fill">Check</button> -->
-                            <button id="submit-btn">Check</button>
+                            <div class="button-bar">
+                                <button id="submit-btna" class="accented-button">Submit</button>
+                            </div>
                         </form>
 
                     </div>
@@ -102,9 +100,10 @@
     </div>
     <div class="footer">
         <div class="container">
-            Any Concerns or Feecback? Tell us <a href="https://github.com/lucasrsa/photowner">Here</a>. Thank You!
+            Any Concerns or Feedback? Tell us <a href="https://github.com/lucasrsa/photowner">Here</a>. Thank You!
         </div>
     </div>
 </div>
 </body>
+
 </html>

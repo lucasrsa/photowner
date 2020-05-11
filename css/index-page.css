@@ -1,0 +1,61 @@
+input[type="file"] {
+    display: none;
+}
+
+.card {
+    background-color: white;
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-family: 'Ubuntu', sans-serif;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.card--outlined {
+    display: flex;
+    border: 1px solid #ccc;
+    background-color: hsl(0, 0%, 90%);
+    border-radius: 24px;
+    padding: 6px 12px;
+}
+
+.custom-file-upload {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 128px;
+    margin: 32px;
+    color: hsl(0, 0%, 10%);
+    cursor: pointer;
+    transition: ease-in-out 100ms;
+}
+
+.custom-file-upload:hover {
+    color: white;
+    background-color: hsl(279, 40%, 70%);
+}
+
+#preview-img {
+    margin: auto;
+    position: relative;
+    display: flex;
+    border-radius: 24px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    max-height: 256px;
+    max-width: 100%;
+}
+
+#uploaded-img {
+    width: 100%;
+    height: 128px;
+    padding: 8px 16px;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+#drop-img {
+
+}
