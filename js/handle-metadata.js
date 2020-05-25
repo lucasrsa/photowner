@@ -61,8 +61,14 @@ $(document).ready(function() {
       }
     }
     showMetadata(metadata);
-    // var newJpegBase64 = piexif.insert(piexif.dump(exifObj), jpegBase64)
   };
+
+  function insertMetadata() {
+    let jpegBase64 = document.getElementById("preview-img").src;
+    let exifObj = piexif.load(jpegBase64);
+    var newJpegBase64 = piexif.insert(piexif.dump(exifObj), jpegBase64);
+    $('#preview-img').attr('src', newJpegBase64);
+  }
 
   // Add metadata fetcher to submit button
   document.getElementById("submit-btn")
