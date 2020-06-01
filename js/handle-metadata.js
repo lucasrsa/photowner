@@ -13,7 +13,7 @@ $(document).ready(function() {
   });
 
   // Populate and show image preview
-  function readURL(input) {
+  function showPreview(input) {
     if (input.files && input.files[0]) {
       let reader = new FileReader();
 
@@ -28,7 +28,7 @@ $(document).ready(function() {
 
   // Add preview to onChange
   $("#uploaded-img").change(function() {
-    readURL(this);
+    showPreview(this);
   });
 
   // Shows all the information given by param line by line
@@ -47,35 +47,31 @@ $(document).ready(function() {
   // Feches info data corresponding to the fields described by
   // metadataOfInterest, if available
   function fetchMetadata() {
-    EXIF.getData(document.getElementById("preview-img"), function() {
-      let index = 0;
-      let metadata = {};
-      for (index in metadataOfInterest) {
-        let fieldName = metadataOfInterest[index];
-        let info = EXIF.getTag(this, fieldName);
-        if (info) {
-          metadata[fieldName] = info;
+    let jpegBase64 = document.getElementById("preview-img").src;
+    let exifObj = piexif.load(jpegBase64);
+    let metadata = {};
+    for (let ifd in exifObj) {
+      if (ifd == "thumbnail") {
+          continue;
+      }
+      for (let tag in exifObj[ifd]) {
+        if (metadataOfInterest.includes(piexif.TAGS[ifd][tag]["name"])) {
+          metadata[piexif.TAGS[ifd][tag]["name"]] = exifObj[ifd][tag]
         }
       }
-      showMetadata(metadata);
-    });
+    }
+    showMetadata(metadata);
   };
+
+  function insertMetadata() {
+    let jpegBase64 = document.getElementById("preview-img").src;
+    let exifObj = piexif.load(jpegBase64);
+    var newJpegBase64 = piexif.insert(piexif.dump(exifObj), jpegBase64);
+    $('#preview-img').attr('src', newJpegBase64);
+  }
 
   // Add metadata fetcher to submit button
   document.getElementById("submit-btn")
     .addEventListener("click", fetchMetadata, false);
-
-  // $(document).on("click", "#submit-btn", function() {
-  //   console.log("CLICKED");
-  //   // var img = document.getElementById("uploaded-img");
-  //   // EXIF.getData(img, function() {
-  //   //   console.log("gotten");
-  //   //   console.log(EXIF);
-  //   //   // var make = EXIF.getTag(this, "Make");
-  //   //   // var model = EXIF.getTag(this, "Model");
-  //   //   // var makeAndModel = document.getElementById("makeAndModel");
-  //   //   // makeAndModel.innerHTML = `${make} ${model}`;
-  //   // });
-  // });
 
 });
