@@ -55,8 +55,9 @@ $(document).ready(function () {
                 continue;
             }
             for (let tag in exifObj[ifd]) {
-                if (metadataOfInterest.includes(piexif.TAGS[ifd][tag]["name"])) {
-                    metadata[piexif.TAGS[ifd][tag]["name"]] = exifObj[ifd][tag]
+                const tagName = piexif.TAGS[ifd][tag]["name"];
+                if (metadataOfInterest.includes(tagName)) {
+                    metadata[tagName] = exifObj[ifd][tag];
                 }
             }
         }
@@ -73,18 +74,5 @@ $(document).ready(function () {
     // Add metadata fetcher to submit button
     document.getElementById("submit-btn")
         .addEventListener("click", fetchMetadata, false);
-
-    // $(document).on("click", "#submit-btn", function() {
-    //   console.log("CLICKED");
-    //   // var img = document.getElementById("uploaded-img");
-    //   // EXIF.getData(img, function() {
-    //   //   console.log("gotten");
-    //   //   console.log(EXIF);
-    //   //   // var make = EXIF.getTag(this, "Make");
-    //   //   // var model = EXIF.getTag(this, "Model");
-    //   //   // var makeAndModel = document.getElementById("makeAndModel");
-    //   //   // makeAndModel.innerHTML = `${make} ${model}`;
-    //   // });
-    // });
 
 });
