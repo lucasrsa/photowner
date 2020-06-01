@@ -3,14 +3,16 @@ const states = [
         //waiting
         onEntry: function () {
             $("#preview-img").hide();
-            $("#input").show();
+            $("#drop-img").show();
             $("#preview-back").hide();
+            $("#submit-btn").hide();
         }
     },
     {
         //waiting
         onEntry: function () {
-            $("#input").hide();
+            $("#drop-img").hide();
+            $("#submit-btn").show();
             $("#preview-img").show();
             $("#preview-back").show();
         }
